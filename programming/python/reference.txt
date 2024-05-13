@@ -239,6 +239,12 @@ Python Strings
     \f	Form Feed	
     \ooo	Octal value	
     \xhh	Hex value
+  
+  string interpolation :
+
+  a="hii"
+  b="!"
+  print(f"{a} {b}")
 
 python boolean
   
@@ -441,7 +447,7 @@ Python list
       if "apple" in thislist:
         print("Yes, 'apple' is in the fruits list")
   
-  Python - Add List Items
+  Python - changing List Items
 
     thislist = ["apple", "banana", "cherry"]
     thislist[1] = "blackcurrant"
@@ -678,7 +684,7 @@ Python -sets
 
   Sets are used to store multiple items in a single variable.
                                                                                                                                                                                             
-  A set is a collection which is unordered, unchangeable*, and unindexed and do not allow duplicate values.
+  A set is a collection which is unordered, and unindexed and do not allow duplicate values.
 
   thisset = {"apple", "banana", "cherry","apple"}
   print(thisset)
@@ -1093,7 +1099,7 @@ set specific =>
 
   union()
 
-dictiona  ry specific =>
+dictionary specific =>
 
   fromkeys()
 
