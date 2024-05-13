@@ -1,0 +1,608 @@
+.................................SQL.......................................
+
+SQL stands for Structured Query Language
+SQL lets you access and manipulate databases
+Most of the actions you need to perform on a database are done with SQL statements.
+
+SQL keywords are NOT case sensitive: select is the same as SELECT
+Some database systems require a semicolon at the end of each SQL statement.
+
+...................fetch..........................
+
+The SQL SELECT Statement
+    
+    The SELECT statement is used to select data from a database.
+
+    syntax :
+        SELECT column1, column2, ... FROM table_name;
+
+    Select ALL columns :
+        SELECT * FROM table_name;
+
+    The SELECT DISTINCT statement is used to return only distinct (different) values
+        SELECT DISTINCT column FROM table_name;
+
+The SQL WHERE Clause
+
+    The WHERE clause is used to filter records.
+    It is used to extract only those records that fulfill a specified condition.
+
+    syntax :
+        SELECT column1, column2, ... FROM table_name WHERE condition;
+
+    SQL requires single quotes around text values (most database systems will also allow double quotes).
+    However, numeric fields should not be enclosed in quotes
+
+    operators used :-
+        =,<,>,>=,<=,(!= or <>)
+
+The SQL ORDER BY
+
+    The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+    syntax:
+        SELECT column1, column2, ... FROM table_name ORDER BY column1, column2, ... ASC|DESC;
+    
+    eg:
+       SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;
+
+SQL AND,OR Operator
+
+    The AND operator is used to filter records based on more than one condition
+    The OR operator is used to filter records based on more than one condition, like if you want to return all customers from Germany but also those from Spain:
+    The WHERE clause can contain one or many AND and OR operators.
+
+    syntax:
+        SELECT column1, column2, ... FROM table_name WHERE condition1 AND condition2 AND condition3 ...;
+        SELECT column1, column2, ... FROM table_name WHERE condition1 OR condition2 OR condition3 ...;
+
+    The AND operator displays a record if all the conditions are TRUE.
+    The OR operator displays a record if any of the conditions are TRUE.
+
+    Combining AND and OR (paranthesis must!!)
+
+    SELECT * FROM Customers WHERE Country = 'India' AND (CustomerName = 'abi' OR CustomerName = 'assmi');
+
+The NOT Operator
+
+    The NOT operator is used in combination with other operators to give the opposite result, also called the negative result
+
+    syntax:-
+
+    SELECT column1, column2, ... FROM table_name WHERE NOT condition;
+
+The SQL INSERT INTO Statement
+
+    The INSERT INTO statement is used to insert new records in a table.
+
+    syntax:
+
+    INSERT INTO table_name (column1, column2, column3, ...) VALUES (value1, value2, value3, ...);
+
+The SQL UPDATE Statement
+
+    The UPDATE statement is used to modify the existing records in a table.
+
+    syntax:
+        UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;
+
+The SQL DELETE Statement
+
+    The DELETE statement is used to delete existing records in a table.
+
+    DELETE syntax
+        DELETE FROM table_name WHERE condition;
+
+    delete all rows:-
+        DELETE FROM table_name;
+    
+    delete table
+        DROP TABLE table_name;
+
+SQL NULL Values
+
+    A field with a NULL value is a field with no value.
+
+    test for NULL values
+
+    IS NULL Syntax
+        SELECT column_names FROM table_name WHERE column_name IS NULL;
+   
+    IS NOT NULL syntax
+        SELECT column_names FROM table_name WHERE column_name IS NOT NULL;
+
+The SQL SELECT TOP Clause
+
+    The SELECT TOP clause is used to specify the number of records to return
+    
+    SQL server syntax:-
+        SELECT TOP number|percent column_name(s) FROM table_name WHERE condition;
+    
+    MySQL Syntax:
+        SELECT column_name(s) FROM table_name WHERE condition LIMIT number;
+
+    example:
+       SELECT TOP 50 PERCENT * FROM Customers;
+
+Aggregate functions
+
+    MIN() and MAX()
+    
+        The MIN() function returns the smallest value of the selected column.
+        The MAX() function returns the largest value of the selected column.
+
+        syntax:-
+          SELECT MIN(column_name) FROM table_name WHERE condition;
+          SELECT MAX(column_name) FROM table_name WHERE condition;
+
+    COUNT()
+    
+        The COUNT() function returns the number of rows that matches a specified criterion.
+
+        syntax:
+          SELECT COUNT(column_name) FROM table_name WHERE condition;
+
+    SUM()
+
+        The SUM() function returns the total sum of a numeric column.
+
+        syntax:-
+            SELECT SUM(column_name) FROM table_name WHERE condition;
+     
+        SUM() With an Expression
+
+            The parameter inside the SUM() function can also be an expression.
+
+            eg:
+              SELECT SUM(Quantity * 10) FROM OrderDetails;
+              SELECT SUM(Price * Quantity) FROM OrderDetails;
+    
+    
+    SQL AVG() Function
+
+         The AVG() function returns the average value of a numeric column.
+
+         syntax:-
+             SELECT AVG(column_name) FROM table_name WHERE condition;
+    
+LIKE operator
+
+    The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+    There are two wildcards often used in conjunction with the LIKE operator:
+        The percent sign % represents zero, one, or multiple characters
+        The underscore sign _ represents one, single character
+
+    eg:-
+
+        %   => The % wildcard represents any number of characters, even zero characters.
+        _   => represent a single character.but the character can be anything
+        A%  => letter starts with A
+        %L% => the string must contains L
+        %AL => ends with AL
+        A%L => starts with A and ends with L
+        A__% => starts with A and must contains 3 characters in length
+
+IN operator
+
+    The IN operator allows you to specify multiple values in a WHERE clause.
+    The IN operator is a shorthand for multiple OR conditions
+
+    syntax:-
+        SELECT column_name(s) FROM table_name WHERE column_name IN (value1, value2, ...);   
+
+    NOT IN
+
+        By using the NOT keyword in front of the IN operator, you return all records that are NOT any of the values in the list.
+        
+        eg:-
+           SELECT * FROM Customers WHERE Country NOT IN ('Germany', 'France', 'UK');
+
+BETWEEN operator
+
+    The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+    The BETWEEN operator is inclusive: begin and end values are included. 
+
+    syntax:-
+       SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2;
+
+    NOT BETWEEN
+
+        To display the products outside the range of the previous example, use NOT BETWEEN
+
+        eg:-
+           SELECT * FROM Products WHERE Price NOT BETWEEN 10 AND 20;
+    
+    BETWEEN dates
+
+    eg:-
+
+        SELECT * FROM Orders WHERE OrderDate BETWEEN #07/01/1996# AND #07/31/1996#;
+
+SQL Aliases
+
+    SQL aliases are used to give a table, or a column in a table, a temporary name.
+    Aliases are often used to make column names more readable.
+    An alias only exists for the duration of that query.
+    An alias is created with the AS keyword.
+
+    syntax:-
+       SELECT column_name AS alias_name FROM table_name;
+       SELECT column_name(s) FROM table_name AS alias_name;
+
+    for space characters use double quotes:-
+
+    eg:-
+        SELECT ProductName AS "My Great Products" FROM Products;
+    
+The CONCAT() 
+    
+    CONCAT() function adds two or more strings and columns together.
+
+    eg:-
+        SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address FROM Customers;
+        SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address FROM Customers;
+
+    both are used
+
+SQL JOIN
+
+    A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+
+    syntax:-
+        SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+    Different Types of SQL JOINs
+
+        (INNER) JOIN: Returns records that have matching values in both tables
+        LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+        RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+        FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+
+    JOIN three tables
+
+    syntax:-
+
+        SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName FROM ((Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID) INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+
+SQL UNION operator
+
+    The UNION operator is used to combine the result-set of two or more SELECT statements.
+
+    Every SELECT statement within UNION must have the same number of columns
+    The columns must also have similar data types
+    The columns in every SELECT statement must also be in the same order
+    
+    syntax:
+        SELECT column_name(s) FROM table1 UNION SELECT column_name(s) FROM table2;
+    
+    UNION ALL Syntax:(allow duplicates)
+        SELECT column_name(s) FROM table1 UNION ALL SELECT column_name(s) FROM table2;
+
+    with WHERE condition syntax:
+        SELECT City, Country FROM Customers WHERE Country='Germany'
+        UNION ALL
+        SELECT City, Country FROM Suppliers WHERE Country='Germany'
+        ORDER BY City;
+    
+SQL GROUP BY Statement
+
+    The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country"
+    The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result-set by one or more columns.
+
+    syntax:
+        SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) ORDER BY column_name(s);
+
+SQL HAVING clause
+
+    The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.
+
+    syntax:
+        SELECT column_name(s) FROM table_name
+        WHERE condition
+        GROUP BY column_name(s)
+        HAVING condition
+        ORDER BY column_name(s);
+
+    eg:-
+        SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country
+        HAVING COUNT(CustomerID) > 5;
+       
+SQL EXISTS operator
+
+    EXISTS operator is used to test for the existence of any record in a subquery.
+    The EXISTS operator returns TRUE if the subquery returns one or more records.
+
+    syntax:-
+        SELECT column_name(s) FROM table_name
+        WHERE EXISTS
+        (SELECT column_name FROM table_name WHERE condition);
+
+    eg:-
+        SELECT SupplierName FROM Suppliers
+        WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price = 22);
+
+SQL ANY and ALL Operators
+
+    The ANY and ALL operators allow you to perform a comparison between a single column value and a range of other values.
+
+    ANY:
+
+          returns a boolean value as a result 
+          returns TRUE if ANY of the subquery values meet the condition
+
+      syntax:
+        SELECT column_name(s) FROM table_name 
+        WHERE column_name operator ANY(SELECT column_name FROM table_name WHERE condition);
+
+    ALL:
+
+        returns a boolean value as a result
+        returns TRUE if ALL of the subquery values meet the condition
+ 
+
+      syntax:
+
+        SELECT column_name(s) FROM table_name 
+        WHERE column_name operator ALL(SELECT column_name FROM table_name WHERE condition);
+
+SQL SELECT INTO
+
+    The SELECT INTO statement copies data from one table into a new table.
+
+      syntax:
+      SELECT column1, column2, column3, ... INTO newtable [IN externaldb]
+      FROM oldtable
+      WHERE condition;
+    
+    SQL INSERT INTO SELECT :
+
+      The INSERT INTO SELECT statement copies data from one table and inserts it into another table.
+      The INSERT INTO SELECT statement requires that the data types in source and target tables match.
+
+      syntax:
+        INSERT INTO table2 (column1, column2, column3, ...) SELECT column1, column2, column3, ...
+        FROM table1
+        WHERE condition;
+
+SQL CASE Expression
+
+    The CASE expression goes through conditions and returns a value when the first condition is met (like an if-then-else statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause.
+
+    syntax:-
+
+      CASE
+      WHEN condition1 THEN result1
+      WHEN condition2 THEN result2
+      WHEN conditionN THEN resultN
+      ELSE result
+      END;
+
+    eg:-
+
+      SELECT OrderID, Quantity,
+      CASE
+        WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+        WHEN Quantity = 30 THEN 'The quantity is 30'
+        ELSE 'The quantity is under 30'
+      END
+      AS QuantityText
+      FROM OrderDetails;
+      
+COALESCE():
+
+    COALESCE() function lets you return an alternative value if an expression is NULL
+
+    syntax:-
+        SELECT ProductName, UnitPrice * (UnitsInStock + COALESCE(UnitsOnOrder, 0)) FROM Products;
+
+SQL Stored Procedures
+
+    A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
+    syntax:-
+        CREATE PROCEDURE procedure_name AS
+        sql_statement
+        GO;
+
+    Execute a Stored Procedure:-
+
+        EXEC procedure_name;
+
+    eg:-
+
+        CREATE PROCEDURE SelectAllCustomers AS
+        SELECT * FROM Customers
+        GO;
+
+        EXEC SelectAllCustomers;
+
+comments
+
+  Single line comments start with --.
+  Multi-line comments start with /* and end with */.
+
+.......................database.................
+
+create database:-
+
+  CREATE DATABASE databasename;
+
+drop database:-
+
+  DROP DATABASE databasename;
+
+create table:-
+
+  CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+   ....
+   );
+
+   eg:-
+
+   CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+    );
+
+drop table:-
+
+    DROP TABLE table_name;
+
+truncate table:-
+
+    The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
+
+    TRUNCATE TABLE table_name; 
+
+alter table:-
+
+    The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
+    The ALTER TABLE statement is also used to add and drop various constraints on an existing table.
+
+    ADD Column
+      ALTER TABLE table_name ADD column_name datatype;
+
+    DROP COLUMN
+       ALTER TABLE table_name DROP COLUMN column_name;
+
+    RENAME COLUMN
+        ALTER TABLE table_name RENAME COLUMN old_name to new_name;
+
+    ALTER datatype
+        ALTER TABLE table_name ALTER COLUMN column_name datatype;
+
+sql create constraints:-
+
+    Constraints can be specified when the table is created with the CREATE TABLE statement, or after the table is created with the ALTER TABLE statement.
+
+    syntax:-
+        CREATE TABLE table_name (
+        column1 datatype constraint,
+        column2 datatype constraint,
+        column3 datatype constraint,
+        ....
+        );
+
+    NOT NULL - Ensures that a column cannot have a NULL value
+    UNIQUE - Ensures that all values in a column are different
+    PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+    FOREIGN KEY - Prevents actions that would destroy links between tables
+    CHECK - Ensures that the values in a column satisfies a specific condition
+    DEFAULT - Sets a default value for a column if no value is specified
+    CREATE INDEX - Used to create and retrieve data from the database very quickly
+
+    SQL NOT NULL Constraint
+
+      The NOT NULL constraint enforces a column to NOT accept NULL values.
+
+    SQL UNIQUE Constraint
+
+      The UNIQUE constraint ensures that all values in a column are different.
+
+    SQL PRIMARY KEY Constraint
+
+      The PRIMARY KEY constraint uniquely identifies each record in a table.
+
+      eg:-
+
+      CREATE TABLE Persons (
+      ID int NOT NULL,
+      LastName varchar(255) NOT NULL,
+      FirstName varchar(255),
+      Age int,
+      PRIMARY KEY (ID)
+      );
+
+    SQL FOREIGN KEY Constraint
+
+      A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table.
+
+      eg:-
+
+      CREATE TABLE Orders (
+      OrderID int NOT NULL,
+      OrderNumber int NOT NULL,
+      PersonID int,
+      PRIMARY KEY (OrderID),
+      FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+      );
+
+    SQL CHECK Constraint
+
+      The CHECK constraint is used to limit the value range that can be placed in a column.
+
+      eg:-
+
+        CREATE TABLE Persons (
+        ID int NOT NULL,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        CHECK (Age>=18)
+        );
+
+    SQL DEFAULT Constraint
+
+       The DEFAULT constraint is used to set a default value for a column.
+
+        eg:-
+        
+        CREATE TABLE Persons (
+         ID int NOT NULL,
+         LastName varchar(255) NOT NULL,
+         FirstName varchar(255),
+         Age int,
+         City varchar(255) DEFAULT 'Sandnes'
+        );
+
+    AUTO INCREMENT Field
+
+        Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.
+     
+        eg:-
+
+        CREATE TABLE Persons (
+        Personid int NOT NULL AUTO_INCREMENT,
+        LastName varchar(255) NOT NULL,
+        FirstName varchar(255),
+        Age int,
+        PRIMARY KEY (Personid)
+        );
+
+SQL INDEX
+
+    The CREATE INDEX statement is used to create indexes in tables.
+
+    Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.
+    
+    syntax:-
+      CREATE INDEX index_name ON table_name (column1, column2, ...);
+
+    DROP INDEX:-
+      The DROP INDEX statement is used to delete an index in a table.
+
+       syntax:-
+         DROP INDEX index_name ON table_name;
+
+SQL Views:-
+
+    In SQL, a view is a virtual table based on the result-set of an SQL statement.
+   
+    syntax:-
+
+      CREATE VIEW view_name AS
+      SELECT column1, column2, ...
+      FROM table_name
+      WHERE condition;
+
+    DROP view:-
+
+      DROP VIEW view_name;
+    

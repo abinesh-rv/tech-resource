@@ -1,0 +1,1192 @@
+c-sharp(c#)
+
+It is an object-oriented programming language created by Microsoft that runs on the .NET Framework.
+
+...........................basic syntax.............................
+
+Basic code :- 
+  
+  using System;
+  namespace HelloWorld
+  {
+   class Program
+    {
+      static void Main(string[] args)
+      {
+      Console.WriteLine("Hello World!");    
+      }
+    }
+  }
+
+  class is a container for data and methods, which brings functionality to your program. 
+  Every line of code that runs in C# must be inside a class
+
+  The curly braces {} marks the beginning and the end of a block of code.
+
+  namespace is used to organize your code, and it is a container for classes and other namespaces.
+
+  using System means that we can use classes from the System namespace.
+
+  Another thing that always appear in a C# program, is the Main method. Any code inside its curly brackets {} will be executed.
+
+  Console is a class of the System namespace, which has a WriteLine() method that is used to output/print text. In our example it will output "Hello World!".
+  If you omit the using System line, you would have to write System.Console.WriteLine() to print/output text.
+
+Output :-
+
+  To output values or print text in C#, you can use the WriteLine() method:
+    
+    Console.WriteLine("Hello World!");
+
+    You can also output numbers, and perform mathematical calculations:
+
+      Console.WriteLine(3 + 3);
+
+  There is also a Write() method, which is similar to WriteLine().The only difference is that it does not insert a new line at the end of the output.
+
+Comments :-
+
+  Single-line comments start with two forward slashes (//).
+  Multi-line comments start with /* and ends with */.
+
+Variables :-
+
+  int - stores integers (whole numbers), without decimals, such as 123 or -123 || byte || short || long
+  double - stores floating point numbers, with decimals, such as 19.99 or -19.99 || float
+  char - stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes
+  string - stores text, such as "Hello World". String values are surrounded by double quotes
+  bool - stores values with two states: true or false
+
+  Declaring (Creating) Variables:
+
+    type variableName = value;
+    eg: string name = "John";
+
+  constants
+
+    the variable as "constant"  means unchangeable and read-only:
+
+    const int myNum = 15;
+    myNum = 20; // error
+
+  displaying variables:
+
+    To combine both text and a variable, use the + character:
+
+      string name = "John";
+      Console.WriteLine("Hello " + name);
+
+  Declare Many Variables:
+
+    int x = 5, y = 6, z = 50;
+    
+    int x, y, z;
+    x = y = z = 50;
+
+Type casting:-
+
+  Implicit Casting (automatically) - converting a smaller type to a larger type size
+    char -> int -> long -> float -> double
+
+    int myInt = 9;
+    double myDouble = myInt;       // Automatic casting: int to double
+
+  Explicit Casting (manually) - converting a larger type to a smaller size type
+    double -> float -> long -> int -> char
+
+    double myDouble = 9.78;
+    int myInt = (int) myDouble;    // Manual casting: double to int
+
+  Type Conversion Methods
+
+    Convert.ToBoolean, Convert.ToDouble, Convert.ToString, Convert.ToInt32 (int) and Convert.ToInt64 (long)
+
+Input :-
+
+   Console.ReadLine() => to get user input.
+
+   The Console.ReadLine() method returns a string.So, for integers we need to use Convert.ToInt32()
+
+Operators :-
+
+  Arithmetic:-
+
+   +,-,*,/,%,++,--
+
+  Assignment:-
+
+   =,+=,-=,*=,/=,%=,&=,|=,^=,>>=,<<=
+
+  Comparison:-
+
+    ==,!=,<,>,<=,>=
+
+  Logical:-
+
+    &&,||,!
+
+Math:-
+
+  The Math.Max(x,y) method can be used to find the highest value of x and y:
+    Math.Max(5, 10);
+
+  The Math.Min(x,y) method can be used to find the lowest value of of x and y:
+    Math.Min(5, 10);
+
+  The Math.Sqrt(x) method returns the square root of x:
+    Math.Sqrt(64);
+
+  The Math.Abs(x) method returns the absolute (positive) value of x:
+    Math.Abs(-4.7);
+
+  Math.Round() rounds a number to the nearest whole number:
+    Math.Round(9.99);
+
+  Cbrt(Double) -> Returns the cube root of a specified number.
+
+  Ceiling(Double) -> 	Returns the smallest integral value that is greater than or equal to the specified decimal number.
+
+  Floor(Double) -> Returns the largest integral value less than or equal to the specified double-precision floating-point number.
+
+  Pow(Double,Double) -> Returns a specified number raised to the specified power.
+
+Strings
+
+  A string variable contains a collection of characters surrounded by double quotes
+
+    string greeting = "Hello";
+    
+  Methods :-
+     
+    string txt = "djjdvefava"
+
+    txt.Length => Length of string
+    txt.ToUpper() => change to upper case 
+    txt.ToLower() => change to lower case
+
+  String Concatenation:-
+
+    The + operator can be used between strings to combine them.
+
+      string firstName = "John ";
+      string lastName = "Doe";
+      string name = firstName + lastName;
+
+    You can also use the string.Concat() method to concatenate two strings:
+
+      string firstName = "John ";
+      string lastName = "Doe";
+      string name = string.Concat(firstName, lastName);
+
+  String Interpolation:-
+
+    string interpolation => substitutes values of variables into placeholders in a string.
+
+     string firstName = "John";
+     string lastName = "Doe";
+     string name = $"My full name is: {firstName} {lastName}";
+
+  Accessing:-
+
+    string myString = "Hello";
+    
+    Indexing:-
+
+      myString[0] //returns "H"
+
+    IndexOf():-
+
+      myString("e") //return 1
+
+    Substring():-
+
+      Substring() => extracts the characters from a string, starting from the specified character position/index, and returns a new string.
+      
+      myString.Substring(1) //returns "ello"
+
+  Special characters:-
+
+    The backslash (\) escape character turns special characters into string characters:
+
+      string txt = "We are the so-called \"Vikings\" from the north.";
+      string txt = "The character \\ is called backslash.";
+
+      \n => New Line	
+      \t => Tab
+      \b => Backspace
+
+ String Methods:-
+
+  Length	It is a string property that returns length of string.
+
+  Clone()	Make clone of string.
+
+  CompareTo()	Compare two strings and returns integer value as output. It returns 0 for true and 1 for false.
+  Contains()	The C# Contains method checks whether specified character or string is exists or not in the string value.
+  Equals()	The Equals Method in C# compares two string and returns Boolean value as output.
+  IsNormalized()	This method checks whether this string is in Unicode normalization form C.
+
+  EndsWith()	This EndsWith Method checks whether specified character is the last character of string or not.
+  StartsWith()	It checks whether the first character of string is same as specified character.
+
+  GetHashCode()	This method returns HashValue of specified string.
+  GetType()	It returns the System.Type of current instance.
+  GetTypeCode()	It returns the Stystem.TypeCode for class System.String.
+
+  IndexOf()	Returns the index position of first occurrence of specified character.
+  LastIndexOf()	Returns the index position of last occurrence of specified character.
+
+  ToLower()	Converts String into lower case based on rules of the current culture.
+  ToUpper()	Converts String into Upper case based on rules of the current culture.
+
+  Insert()	Insert the string or character in the string at the specified position.
+  Remove()	This method deletes all the characters from beginning to specified index position.
+  Replace()	This method replaces the character.
+
+  Split()	This method splits the string based on specified value.
+  Substring()	This method returns substring.
+  ToCharArray()	Converts string into char array.
+  Trim()	It removes extra whitespaces from beginning and ending of string.
+
+If...Else:-
+
+  if (condition1)
+  {
+    // block of code to be executed if condition1 is True
+  } 
+  else if (condition2) 
+  {
+   // block of code to be executed if the condition1 is false and condition2 is True
+  } 
+  else
+  {
+   // block of code to be executed if the condition1 is false and condition2 is False
+  }
+
+  Ternary Operator:-
+
+    variable = (condition) ? expressionTrue :  expressionFalse;
+    
+    int time = 20;
+    string result = (time < 18) ? "Good day." : "Good evening.";
+
+Switch:-
+
+  switch(expression) 
+  {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+    break;
+  }
+
+While:-
+
+  while (condition) 
+  {
+   // code block to be executed
+  }
+
+  do 
+  {
+    // code block to be executed
+  }
+  while (condition);
+
+For:-
+
+  for (statement 1; statement 2; statement 3) 
+  {
+   // code block to be executed
+  }
+
+  Statement 1 is executed (one time) before the execution of the code block.
+  Statement 2 defines the condition for executing the code block.
+  Statement 3 is executed (every time) after the code block has been executed.
+
+  Foreach:-
+
+    foreach (type variableName in arrayName) 
+    {
+     // code block to be executed
+    }
+
+    string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+    foreach (string i in cars) 
+    {
+     Console.WriteLine(i);
+    }
+
+Break and Continue:-
+
+  The break statement can also be used to jump out of a loop.
+  The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+
+Arrays:-
+
+  To declare an array, define the variable type with square brackets:
+  string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+  Accessing:-
+
+    Console.WriteLine(cars[0]);
+
+  Changing element:-
+
+    cars[0] = "Opel";
+
+  Length:-
+
+    cars.Length
+
+  Sorting:-
+
+    Array.Sort(cars);
+
+  System.Linq Namespace:-
+     
+    contains multiple useful array methods
+    
+      int[] myNumbers = {5, 1, 8, 9};
+      Console.WriteLine(myNumbers.Max());  // returns the largest value
+      Console.WriteLine(myNumbers.Min());  // returns the smallest value
+      Console.WriteLine(myNumbers.Sum());  // returns the sum of elements
+
+  Multidimensional Arrays:-
+
+    To create a 2D array, add each array within its own set of curly braces, and insert a comma (,) inside the square brackets:
+    int[,] numbers = { {1, 4, 2}, {3, 6, 8} };
+
+    The single comma [,] specifies that the array is two-dimensional. A three-dimensional array would have two commas: int[,,].
+
+ Array Methods:-
+
+  IsFixedSize	Gets a value indicating whether the Array has a fixed size.
+  IsReadOnly	Gets a value indicating whether the Array is read-only.
+  IsSynchronized	Gets a value indicating whether access to the Array is synchronized (thread safe).
+  Length	Gets the total number of elements in all the dimensions of the Array.
+  LongLength	Gets a 64-bit integer that represents the total number of elements in all the dimensions of the Array.
+  Rank	Gets the rank (number of dimensions) of the Array. For example, a one-dimensional array returns 1, a two-dimensional array returns 2, and so on.
+  SyncRoot	Gets an object that can be used to synchronize access to the Array.
+
+  Empty()	Returns an empty array.
+
+  Clone()	Creates a shallow copy of the Array.
+  MemberwiseClone()	Creates a shallow copy of the current Object.
+
+  CreateInstance()	Initializes a new instance of the Array class.
+  Initialize()	Initializes every element of the value-type Array by calling the default constructor of the value type.
+
+  AsReadOnly()	Returns a read-only wrapper for the specified array.
+
+  BinarySearch()	Searches a one-dimensional sorted Array for a value, using a binary search algorithm.
+
+  Clear()	Sets a range of elements in an array to the default value of each element type.
+
+  ConvertAll()	Converts an array of one type to an array of another type.
+
+  ConstrainedCopy()	Copies a range of elements from an Array starting at the specified source index and pastes them to another Array starting at the specified destination index. Guarantees that all changes are undone if the copy does not succeed completely.
+  Copy()	Copies a range of elements in one Array to another Array and performs type casting and boxing as required.
+  CopyTo()	Copies all the elements of the current one-dimensional array to the specified one-dimensional array.
+ 
+  Equals()	Determines whether the specified object is equal to the current object.
+  Exists()	Determines whether the specified array contains elements that match the conditions defined by the specified predicate.
+  TrueForAll()	Determines whether every element in the array matches the conditions defined by the specified predicate.
+
+  Find()	Searches for an element that matches the conditions defined by the specified predicate, and returns the first occurrence within the entire Array.
+  FindAll()	Retrieves all the elements that match the conditions defined by the specified predicate.
+  FindIndex()	Searches for an element that matches the conditions defined by a specified predicate, and returns the zero-based index of the first occurrence within an Array or a portion of it.
+  FindLast()	Searches for an element that matches the conditions defined by the specified predicate, and returns the last occurrence within the entire Array.
+  FindLastIndex()	Searches for an element that matches the conditions defined by a specified predicate, and returns the zero-based index of the last occurrence within an Array or a portion of it.
+
+  ForEach()	Performs the specified action on each element of the specified array.
+  GetEnumerator()	Returns an IEnumerator for the Array.
+
+  GetHashCode()	Serves as the default hash function.
+  GetLength()	Gets a 32-bit integer that represents the number of elements in the specified dimension of the Array.
+  GetLongLength()	Gets a 64-bit integer that represents the number of elements in the specified dimension of the Array.
+  GetLowerBound()	Gets the index of the first element of the specified dimension in the array.
+  GetType()	Gets the Type of the current instance.
+  GetUpperBound()	Gets the index of the last element of the specified dimension in the array.
+  GetValue()	Gets the value of the specified element in the current Array.
+
+  IndexOf()	Searches for the specified object and returns the index of its first occurrence in a one-dimensional array or in a range of elements in the array.
+  LastIndexOf()	Returns the index of the last occurrence of a value in a one-dimensional Array or in a portion of the Array.
+
+  Resize()	Changes the number of elements of a one-dimensional array to the specified new size.
+
+  Sort()	Sorts the elements in a one-dimensional array.
+  Reverse()	Reverses the order of the elements in a one-dimensional Array or in a portion of the Array.
+
+  SetValue()	Sets the specified element in the current Array to the specified value.
+
+  ToString()	Returns a string that represents the current object. 
+ 
+Files:-
+
+  The File class from the System.IO namespace, allows us to work with files
+
+    AppendText()    Appends text at the end of an existing file
+    Copy()	Copies a file
+    Create()	Creates or overwrites a file
+    Delete()	Deletes a file
+    Exists()	Tests whether the file exists
+    ReadAllText()	Reads the contents of a file
+    Replace()	Replaces the contents of a file with the contents of another file
+    WriteAllText()	Creates a new file and writes the contents to it. If the file already exists, it will be overwritten.
+
+  Read and Write file:-
+
+    using System.IO;  // include the System.IO namespace
+
+    string writeText = "Hello World!";  // Create a text string
+    File.WriteAllText("filename.txt", writeText);  // Create a file and write the content of writeText to it
+
+    string readText = File.ReadAllText("filename.txt");  // Read the contents of the file
+    Console.WriteLine(readText);  // Output the content
+
+
+
+  try
+
+Exceptions:-
+
+  try
+  {
+    int[] myNumbers = {1, 2, 3};
+    Console.WriteLine(myNumbers[10]);
+  }
+  catch (Exception e)
+  {
+    Console.WriteLine("Something went wrong.");
+  }
+  finally
+  {
+    Console.WriteLine("The 'try catch' is finished.");
+  }
+
+  The throw keyword:-
+
+    The throw statement allows you to create a custom error.
+
+...................................Methods............................................
+
+A method is a block of code which only runs when it is called.
+
+You can pass data, known as parameters, into a method.
+
+Methods are used to perform certain actions, and they are also known as functions.
+
+Creating Methods :-
+
+  A method is defined with the name of the method, followed by parentheses (). 
+
+  class Program
+  {
+    static void MyMethod() 
+      {
+        // code to be executed
+      }
+  }
+
+  MyMethod() is the name of the method
+  static means that the method belongs to the Program class and not an object of the Program class.
+  void means that this method does not have a return value.
+
+Call a Method :-
+
+  static void MyMethod() 
+  {
+    Console.WriteLine("I just got executed!");
+  }
+
+  static void Main(string[] args)
+  {
+    MyMethod();
+  }
+
+Parameters:-
+
+  Information can be passed to methods as parameter. Parameters act as variables inside the method.
+
+  static void MyMethod(string fname) 
+  {
+    Console.WriteLine(fname + " Refsnes");
+  }
+
+  static void Main(string[] args)
+  {
+    MyMethod("Liam");
+    MyMethod("Jenny");
+    MyMethod("Anja");
+  }
+
+  Default Parameter Value:-
+
+    static void MyMethod(string country = "Norway") 
+    {
+      Console.WriteLine(country);
+    }
+
+  Return Values:-
+
+    static int MyMethod(int x) 
+    {
+      return 5 + x;
+    }
+
+    static void Main(string[] args)
+    {
+      Console.WriteLine(MyMethod(3));
+    }
+
+  Named Arguments:-
+
+    static void MyMethod(string child1, string child2, string child3) 
+    {
+      Console.WriteLine("The youngest child is: " + child3);
+    }
+
+    static void Main(string[] args)
+    {
+      MyMethod(child3: "John", child1: "Liam", child2: "Liam");
+    }
+
+Overloading:-
+
+  With method overloading, multiple methods can have the same name with different parameters:
+ 
+  int MyMethod(int x)
+  float MyMethod(float x)
+  double MyMethod(double x, double y)
+
+Delegates:-
+
+  A delegate is a type that represents references to methods with a particular parameter list and return type. 
+  When you instantiate a delegate, you can associate its instance with any method with a compatible signature and return type. 
+  You can invoke (or call) the method through the delegate instance.
+
+............................................OOP..............................................
+
+Classess and Objects:-
+
+   Classes and objects are the two main aspects of object-oriented programming.
+
+   A class is a template for objects, and an object is an instance of a class.
+
+   When the individual objects are created, they inherit all the variables and methods from the class.
+
+   In real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.
+
+   A Class is like an object constructor, or a "blueprint" for creating objects.
+
+  Create a Class and  Object:-
+  
+    //we can create multiple objects for a specific class
+
+    class Car 
+    {
+      string color = "red";
+    
+       static void Main(string[] args)
+       {
+         Car myObj = new Car();
+         Car myObj1 = new Car();
+         Console.WriteLine(myObj.color);
+       }
+    }
+
+  Using Multiple Classes:-
+
+    You can also create an object of a class and access it in another class. This is often used for better organization of classes (one class has all the fields and methods, while the other class holds the Main() method (code to be executed)).
+
+    prog2.cs
+    
+      class Car 
+      {
+        public string color = "red";
+      }
+
+    prog.cs
+
+      class Program
+      {
+        static void Main(string[] args)
+        {
+        Car myObj = new Car();
+        Console.WriteLine(myObj.color);
+        }
+      }
+
+Class Members:-
+
+    Fields and methods inside classes are often referred to as "Class Members"
+
+    Fields:-
+
+      variables inside a class are called fields
+
+      class Car 
+        {
+          string color;
+          int maxSpeed;
+        
+          static void Main(string[] args)
+          {
+            Car myObj = new Car();
+            myObj.color = "red";
+            myObj.maxSpeed = 200;
+            Console.WriteLine(myObj.color);
+            Console.WriteLine(myObj.maxSpeed);
+          }
+        }
+
+    Methods:-
+     
+      //methods should be public
+
+      class Car 
+        {
+          string color;                 // field
+          int maxSpeed;                 // field
+          public void fullThrottle()    // method
+          {
+            Console.WriteLine("The car is going as fast as it can!"); 
+          }
+        
+          static void Main(string[] args)
+          {
+            Car myObj = new Car();
+            myObj.fullThrottle();  // Call the method
+          }
+        }
+
+Constructor:-
+
+  A constructor is a special method that is used to initialize objects.
+  the constructor name must match the class name, and it cannot have a return type (like void or int).
+  the constructor is called when the object is created.
+  All classes have constructors by default: if you do not create a class constructor yourself, C# creates one for you
+  Constructors save time
+
+  class Car
+  {
+    public string model;  // Create a field
+  
+    // Create a class constructor for the Car class
+    public Car()
+    {
+      model = "Mustang"; // Set the initial value for model
+    }
+  
+    static void Main(string[] args)
+    {
+      Car Ford = new Car();  // Create an object of the Car Class (this will call the constructor)
+      Console.WriteLine(Ford.model);  // Print the value of model
+    }
+  }
+
+  Constructor Parameters:-
+
+      public Car(string modelName)
+      {
+        model = modelName;
+      }
+
+       Car Ford = new Car("Mustang");
+
+Access Modifiers:-
+
+  To control the visibility of class members (the security level of each individual class and class member).
+
+  public	-> The code is accessible for all classes
+  private	-> The code is only accessible within the same class
+  protected	-> The code is accessible within the same class, or in a class that is inherited from that class
+  internal	-> The code is only accessible within its own assembly, but not from another assembly.
+    
+Properties (Get and Set):-
+
+  The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:
+    declare fields/variables as private
+    provide public get and set methods, through properties, to access and update the value of a private field
+    
+  A property is like a combination of a variable and a method, and it has two methods: a get and a set method:
+    
+    used for accessing private variables
+
+    class Person
+    {
+      private string name; // field
+    
+      public string Name   // property
+      {
+        get { return name; }   // get method
+        set { name = value; }  // set method
+      }
+    }
+
+    Automatic Properties(short hand):
+
+      class Person
+      {
+        public string Name  // property
+        { get; set; }
+      }
+
+Inheritance:-
+
+  We group the "inheritance concept" into two categories:
+    Derived Class (child) - the class that inherits from another class
+    Base Class (parent) - the class being inherited from
+
+  To inherit from a class, use the : symbol.
+
+  class Vehicle  // base class (parent) 
+  {
+    public string brand = "Ford";  // Vehicle field
+    public void honk()             // Vehicle method 
+    {                    
+      Console.WriteLine("Tuut, tuut!");
+    }
+  }
+  
+  class Car : Vehicle  // derived class (child)
+  {
+    public string modelName = "Mustang";  // Car field
+  }
+  
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      // Create a myCar object
+      Car myCar = new Car();
+  
+      // Call the honk() method (From the Vehicle class) on the myCar object
+      myCar.honk();
+  
+      // Display the value of the brand field (from the Vehicle class) and the value of the modelName from the Car class
+      Console.WriteLine(myCar.brand + " " + myCar.modelName);
+    }
+  }
+
+  sealed keyword:
+
+    If you don't want other classes to inherit from a class, use the sealed keyword
+
+    sealed class Vehicle 
+    {
+    ...
+    }
+
+    class Car : Vehicle  //error
+    {
+    ...
+    }
+
+Polymorphism:-
+
+  Polymorphism means "many forms"
+
+  For example, think of a base class called Animal that has a method called animalSound(). Derived classes of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.)
+  
+  class Animal  // Base class (parent) 
+  {
+    public void animalSound() 
+    {
+      Console.WriteLine("The animal makes a sound");
+    }
+  }
+  
+  class Pig : Animal  // Derived class (child) 
+  {
+    public void animalSound() 
+    {
+      Console.WriteLine("The pig says: wee wee");
+    }
+  }
+  
+  class Dog : Animal  // Derived class (child) 
+  {
+    public void animalSound() 
+    {
+      Console.WriteLine("The dog says: bow wow");
+    }
+  }
+
+Abstraction:-
+
+  Data abstraction is the process of hiding certain details and showing only essential information to the user.
+
+  The abstract keyword is used for classes and methods:
+    Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+    Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the derived class (inherited from).
+
+  override keyword => override the base class method.
+
+  abstract class Animal
+  {
+    // Abstract method (does not have a body)
+    public abstract void animalSound();
+    // Regular method
+    public void sleep()
+    {
+     Console.WriteLine("Zzz");
+    }
+  }
+
+  // Derived class (inherit from Animal)
+  class Pig : Animal  
+   {
+    public override void animalSound()
+    {
+    // The body of animalSound() is provided here
+    Console.WriteLine("The pig says: wee wee");
+    }
+   }
+
+Interfaces:-
+
+  An interface is a completely "abstract class", which can only contain abstract methods and properties (with empty bodies)
+  By default, members of an interface are abstract and public.
+  C# does not support "multiple inheritance",However, it can be achieved with interfaces, because the class can implement multiple interfaces.
+
+  // Interface
+   interface IAnimal 
+   {
+     void animalSound(); // interface method (does not have a body)
+   }
+   
+   // Pig "implements" the IAnimal interface
+   class Pig : IAnimal 
+   {
+     public void animalSound() 
+     {
+       // The body of animalSound() is provided here
+       Console.WriteLine("The pig says: wee wee");
+     }
+   }
+
+  Multiple interfaces:-
+
+   interface IFirstInterface 
+    {
+      void myMethod(); // interface method
+    }
+    
+    interface ISecondInterface 
+    {
+      void myOtherMethod(); // interface method
+    }
+    
+    // Implement multiple interfaces
+    class DemoClass : IFirstInterface, ISecondInterface 
+    {
+      public void myMethod() 
+      {
+        Console.WriteLine("Some text..");
+      }
+      public void myOtherMethod() 
+      {
+        Console.WriteLine("Some other text...");
+      }
+    }
+
+Enums:-
+  
+  An enum is a special "class" that represents a group of constants (unchangeable/read-only variables).
+  To create an enum, use the enum keyword (instead of class or interface), and separate the enum items with a comma:
+
+  enum Level 
+  {
+    Low,
+    Medium,
+    High
+  }
+
+  Level myVar = Level.Medium;
+  Console.WriteLine(myVar);
+
+  By default, the first item of an enum has the value 0. The second has the value 1, and so on.
+  To get the integer value from an item, you must explicitly convert the item to an int
+  You can also assign your own enum values, and the next items will update their numbers accordingly.
+
+Static :-
+
+  static means something which cannot be instantiated
+  You cannot create an object of a static class and cannot access static members using an object.
+
+  Static fields:-
+    Static fields of a non-static class is shared across all the instances. So, changes done by one instance would reflect in others.
+
+  Static methods:-
+    The static methods can only call other static methods and access static members. You cannot access non-static members of the class in the static methods.
+
+  https://www.tutorialsteacher.com/csharp/csharp-static#:~:text=In%20C%23%2C%20static%20means%20something,using%20the%20static%20modifier%20keyword.
+
+readonly :-
+
+  The readonly keyword can be used to define a variable or an object as readable only.
+  This means that the variable or object can be assigned a value at the class scope or in a constructor only. You cannot change the value or reassign a value to a readonly variable or object in any other method except the constructor.
+
+......................................................Collections.......................................................
+
+ArrayList:-
+
+    ArrayList can be used to add unknown data where you don't know the types and the size of the data.
+
+    var arlist1 = new ArrayList();
+
+    Adding :- 
+
+      arlist1.Add(1);
+
+      var arlist2 = new ArrayList()
+                {
+                2, "Steve", " ", true, 4.5, null
+                };
+
+    Accessing an ArrayList :-
+
+      var firstElement = arlist[0];
+      var secondElement = arlist[1];
+
+    Insert Elements in ArrayList :-
+
+      Use the Insert() method to insert an element at the specified index into an ArrayList.
+        arlist.Insert(1, "Second Item");
+
+      Use the InsertRange() method to insert a collection in an ArrayList at the specfied index.
+        ArrayList arlist1 = new ArrayList()
+                {
+                    100, 200, 600
+                };
+
+        ArrayList arlist2 = new ArrayList()
+                {
+                    300, 400, 500
+                };
+        arlist1.InsertRange(2, arlist2);
+
+    Remove Elements from ArrayList:-
+
+        Use the Remove(), RemoveAt(), or RemoveRange methods to remove elements from an ArrayList.
+
+        arList.Remove(null); //Removes first occurance of null
+        arList.RemoveAt(4); //Removes element at index 4
+        arList.RemoveRange(0, 2);//Removes two elements starting from 1st item (0 index)
+    
+    Check Element in ArrayList:-
+
+      Use the Contains() method to determine whether the specified element exists in the ArrayList or not.
+        Console.WriteLine(arList.Contains(300)); // true
+
+    Update:-
+      
+      arlist[0] = "Steve"; 
+      arlist[1] = 100;
+
+ generic list Methods:-
+
+  Capacity	Gets or sets the total number of elements the internal data structure can hold without resizing.
+  Count	Gets the number of elements contained in the List<T>.
+  Item[Int32]	Gets or sets the element at the specified index.
+
+  Add(T)	Adds an object to the end of the List<T>.
+  AddRange(IEnumerable<T>)	Adds the elements of the specified collection to the end of the List<T>.
+  Insert(Int32, T)	Inserts an element into the List<T> at the specified index.
+  InsertRange(Int32, IEnumerable<T>)	Inserts the elements of a collection into the List<T> at the specified index.
+
+  Remove(T)	Removes the first occurrence of a specific object from the List<T>.
+  RemoveAll(Predicate<T>)	Removes all the elements that match the conditions defined by the specified predicate.
+  RemoveAt(Int32)	Removes the element at the specified index of the List<T>.
+  RemoveRange(Int32, Int32)	Removes a range of elements from the List<T>.
+
+  AsReadOnly()	Returns a read-only ReadOnlyCollection<T> wrapper for the current collection.
+
+  BinarySearch()	Uses a binary search algorithm to locate a specific element in the sorted List<T> or a portion of it.
+
+  Clear()	Removes all elements from the List<T>.
+
+  Contains(T)	Determines whether an element is in the List<T>.
+
+  CopyTo()	Copies the List<T> or a portion of it to an array.
+  MemberwiseClone()	Creates a shallow copy of the current Object.
+
+  ConvertAll(Converter)	Converts the elements in the current List<T> to another type, and returns a list containing the converted elements.
+
+  Equals(Object)	Determines whether the specified object is equal to the current object.
+  Exists(Predicate<T>)	Determines whether the List<T> contains elements that match the conditions defined by the specified predicate.
+  TrueForAll(Predicate<T>)	Determines whether every element in the List<T> matches the conditions defined by the specified predicate.
+
+  Find(Predicate<T>)	Searches for an element that matches the conditions defined by the specified predicate, and returns the first occurrence within the entire List<T>.
+  FindAll(Predicate<T>)	Retrieves all the elements that match the conditions defined by the specified predicate.
+  FindIndex()	Searches for an element that matches the conditions defined by a specified predicate, and returns the zero-based index of the first occurrence within the List<T> or a portion of it. This method returns -1 if an item that matches the conditions is not found.
+  FindLast(Predicate<T>)	Searches for an element that matches the conditions defined by the specified predicate, and returns the last occurrence within the entire List<T>.
+  FindLastIndex()	Searches for an element that matches the conditions defined by a specified predicate, and returns the zero-based index of the last occurrence within the List<T> or a portion of it.
+
+  ForEach(Action<T>)	Performs the specified action on each element of the List<T>.
+  GetEnumerator()	Returns an enumerator that iterates through the List<T>.
+
+  GetHashCode()	Serves as the default hash function.
+  GetRange(Int32, Int32)	Creates a shallow copy of a range of elements in the source List<T>.
+  GetType()	Gets the Type of the current instance.
+
+  IndexOf()	Returns the zero-based index of the first occurrence of a value in the List<T> or in a portion of it.
+  LastIndexOf()	Returns the zero-based index of the last occurrence of a value in the List<T> or in a portion of it.
+
+  Reverse()	Reverses the order of the elements in the List<T> or a portion of it.
+  Sort()	Sorts the elements or a portion of the elements in the List<T> using either the specified or default IComparer<T> implementation or a provided Comparison<T> delegate to compare list elements.
+
+  ToArray()	Copies the elements of the List<T> to a new array.
+  ToString()	Returns a string that represents the current object.
+
+  TrimExcess()	Sets the capacity to the actual number of elements in the List<T>, if that number is less than a threshold value.
+   
+Dictionary:-
+
+   The Dictionary<TKey, TValue> is a generic collection that stores key-value pairs in no particular order.
+    Dictionary cannot include duplicate or null keys, whereas values can be duplicated or null. Keys must be unique otherwise, it will throw a runtime exception.
+
+    IDictionary<int, string> numberNames = new Dictionary<int, string>();
+
+    var cities = new Dictionary<string, string>(){
+	    {"UK", "London, Manchester, Birmingham"},
+	    {"USA", "Chicago, New York, Washington"},
+	    {"India", "Mumbai, New Delhi, Pune"}
+    };
+
+    Adding:-
+      numberNames.Add(1,"One");
+
+    Access Dictionary Elements:-
+
+      Console.WriteLine(cities["UK"]);
+
+      use ContainsKey() to check for an unknown key
+
+      use ElementAt() to retrieve key-value pair using index
+          cities.ElementAt(i).Key, 
+          cities.ElementAt(i).Value;
+
+    Update Dictionary:-
+
+      cities["UK"] = "Liverpool, Bristol"; 
+    
+    Remove Elements in Dictionary:-
+
+      cities.Remove("UK");
+
+ Dictionary methods:_
+
+  Comparer	Gets the IEqualityComparer<TKey, TValue> that is used to determine equality of keys for the dictionary.
+  Count	Gets the number of key/value pairs contained in the Dictionary<TKey, TValue>.
+  Item[TKey]	Gets or sets the value associated with the specified key.
+  Keys	Gets a collection containing the keys in the Dictionary<TKey, TValue>.
+  Values	Gets a collection containing the values in the Dictionary<TKey, TValue>.
+
+  Add(TKey, TValue)	Adds the specified key and value to the dictionary. 
+  Remove(TKey)	Removes the value with the specified key from the Dictionary<TKey, TValue>.
+ 
+  Clear()	Removes all keys and values from the Dictionary<TKey, TValue>.
+
+  ContainsKey(TKey)	Determines whether the Dictionary<TKey, TValue> contains the specified key.
+  ContainsValue(TValue)	Determines whether the Dictionary<TKey, TValue> contains a specific value.
+
+  Equals(Object)	Determines whether the specified object is equal to the current object. 
+ 
+  GetEnumerator()	Returns an enumerator that iterates through the Dictionary<TKey, TValue> .
+
+  GetHashCode()	Serves as the default hash function.
+  GetObjectData(SerializationInfo, StreamingContext)	Implements the ISerializable interface and returns the data needed to serialize the Dictionary<TKey,TValue> instance.
+  GetType()	Gets the Type of the current instance.
+
+  MemberwiseClone()	Creates a shallow copy of the current Object.
+
+  OnDeserialization(Object)	Implements the ISerializable interface and raises the deserialization event when the deserialization is complete.
+
+  ToString()	Returns a string that represents the current object.
+
+  TryGetValue(TKey, TValue)	Gets the value associated with the specified key.
+
+Queue:-
+    
+    Queue<T> is FIFO (First In First Out) collection.
+    
+    Queue<int> callerIds = new Queue<int>();
+
+    Count	Returns the total count of elements in the Queue.
+
+    Enqueue(T)	Adds an item into the queue.
+    Dequeue	Returns an item from the beginning of the queue and removes it from the queue.
+    Peek()	Returns an first item from the queue without removing it.
+    Contains(T)	Checks whether an item is in the queue or not
+    Clear()	Removes all the items from the queue.    
+
+Stack:-
+    
+    Stack<T> is Last In First Out collection.
+
+    Stack<int> myStack = new Stack<int>();
+
+    Count	Returns the total count of elements in the Stack.
+
+    Push(T)	Inserts an item at the top of the stack.
+    Peek()	Returns the top item from the stack.
+    Pop()	Removes and returns items from the top of the stack.
+    Contains(T)	Checks whether an item exists in the stack or not.
+    Clear()	Removes all items from the stack.
+
+Set:-
+
+  Count -> The number of elements that are contained in the set.
+  Comparer -> Gets the IEqualityComparer<T> object that is used to determine equality for the values in the set.
+
+  Add() -> Adds the specified element to a set.
+  Remove() -> Removes the specified element from a HashSet<T> object.
+  RemoveWhere() -> Removes all elements that match the conditions defined by the specified predicate from a HashSet<T> collection.
+  Clear() -> Removes all elements from a HashSet<T> object.
+
+  IntersectWith() -> Modifies the current HashSet<T> object to contain only elements that are present in that object and in the specified collection.
+  ExceptWith() -> Removes all elements in the specified collection from the current HashSet<T> object.
+  SymmetricExceptWith() -> Modifies the current HashSet<T> object to contain only elements that are present either in that object or in the specified collection, but not both.
+  UnionWith() -> Modifies the current HashSet<T> object to contain all elements that are present in itself, the specified collection, or both.
+
+  Contains() -> Determines whether a HashSet<T> object contains the specified element.
+
+  CopyTo() -> Copies the elements of a HashSet<T> collection to an array.
+
+  CreateSetComparer() -> Returns an IEqualityComparer object that can be used for equality testing of a HashSet<T> object.
+
+  EnsureCapacity() -> Ensures that this hash set can hold the specified number of elements without any further expansion of its backing storage.
+
+  GetEnumerator() -> Returns an enumerator that iterates through a HashSet<T> object.
+
+  IsSubsetOf() -> Determines whether a HashSet<T> object is a subset of the specified collection.
+  IsSupersetOf() -> Determines whether a HashSet<T> object is a superset of the specified collection.
+  IsProperSubsetOf() -> Determines whether a HashSet<T> object is a proper subset of the specified collection.
+  IsProperSupersetOf() -> Determines whether a HashSet<T> object is a proper superset of the specified collection.
+
+  OnDeserialization() -> Implements the ISerializable interface and raises the deserialization event when the deserialization is complete.
+
+  Overlaps() -> Determines whether the current HashSet<T> object and a specified collection share common elements.
+
+  SetEquals() -> Determines whether a HashSet<T> object and the specified collection contain the same elements.
+
+  TrimExcess() -> Sets the capacity of a HashSet<T> object to the actual number of elements it contains, rounded up to a nearby, implementation-specific value.
+
+  TryGetValue() -> Searches the set for a given value and returns the equal value it finds, if any.
+
+
+
+
+
+
+  
+
+      

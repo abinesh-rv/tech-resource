@@ -1,0 +1,13 @@
+priority_queue =>
+  heap data structure
+  min heap or max heap
+  max or min element in top
+
+set => unique,ordered
+  multiset => duplicate elements
+  unordered_set => random elements,unique
+  unordered_multiset => random and duplicate elements
+
+map => unique key,ordered key
+  multimap => duplicate keys but different values
+  unordered_map => unordered keys,duplicate keys

@@ -1,0 +1,23 @@
+for passing children :
+   React.ReactNode
+
+for passing styles:
+    React.CSSProperties
+
+for passing html component properties:
+    React.ComponentPropsWithoutRef<"componentName">
+    eg:- React.ComponentPropsWithoutRef<"button">
+
+    with Ref:
+       React.ComponentPropsWithRef<"componentName">
+
+for passing only JSX elements:
+    JSX.Element
+
+for event Listeners:
+    React.MouseEvent<HTMLButtonElement,MouseEvent>
+
+for hooks:
+
+    useState:- useState<string | null>(null)
+               Accessing use (?)

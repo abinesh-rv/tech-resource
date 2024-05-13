@@ -1,0 +1,1 @@
+print(binary_search(array,no_to_find))

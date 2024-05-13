@@ -1,0 +1,825 @@
+***********************js************************
+
+Semicolons separate JavaScript statements.
+JavaScript ignores multiple spaces. You can add white space to your script to make it more readable.
+
+Where To
+
+  The <script> Tag
+
+    In HTML, JavaScript code is inserted between <script> and </script> tags.
+
+    You can place any number of scripts in an HTML document.
+   
+    Scripts can be placed in the <body>, or in the <head> section of an HTML page, or in both.
+
+  External JavaScript
+
+    <script src="myScript.js"></script>
+
+JavaScript Output
+
+  Writing into an HTML element, using innerHTML.
+
+    eg:- document.getElementById("demo").innerHTML = 5 + 6;
+
+  Writing into the HTML output using document.write().
+    
+    eg:- document.write(5 + 6);
+
+    Using document.write() after an HTML document is loaded, will delete all existing HTML
+
+  Writing into an alert box, using window.alert().
+
+    eg:- window.alert(5 + 6);
+
+  Writing into the browser console, using console.log().
+
+    eg:- console.log(5 + 6);
+
+comments
+
+  single line //
+  multi line /* */
+
+variables
+
+  var    =>  Only use var if you MUST support old browsers.
+  const  =>  Always use const if the value should not be changed
+  let    =>  Only use let if you can't use const
+
+datatyes
+  
+  1. String
+  2. Number
+  3. Bigint
+  4. Boolean
+  5. Undefined
+  6. Null
+  7. Symbol
+  8. Object => object,array,data
+
+functions 
+  
+  syntax:-
+
+    function myFunction(p1, p2) {
+      return p1 * p2;
+    }
+  
+  arrow function
+
+    let myFunction = (a, b) => a * b;
+
+Objects
+
+  Objects are variables too. But objects can contain many values.
+
+  eg:-
+
+    const car = {type:"Fiat", model:"500", color:"white"};
+
+  accessing :-
+
+    objectName.propertyName => person.lastName;
+
+  Object Methods
+    
+    A method is a function stored as a property.
+
+    this keyword
+
+       the this keyword refers to an object.
+
+       eg:-
+
+         const person = {
+         firstName: "John",
+         lastName : "Doe",
+         id       : 5566,
+         fullName : function() {
+           return this.firstName + " " + this.lastName;
+         }
+         };
+
+  Comparing two JavaScript objects always returns false.
+
+Event
+
+  HTML events are "things" that happen to HTML elements.
+
+  When JavaScript is used in HTML pages, JavaScript can "react" on these events.
+
+  common html events
+
+    onchange	An HTML element has been changed
+    onclick	The user clicks an HTML element
+    onmouseover	The user moves the mouse over an HTML element
+    onmouseout	The user moves the mouse away from an HTML element
+    onkeydown	The user pushes a keyboard key
+    onload	The browser has finished loading the page
+
+strings
+
+  let text = "John Doe";
+
+  string length
+
+    text.length;
+
+  Escape Character
+
+    The sequence \"  inserts a double quote in a string:
+
+    let text = "We are the so-called \"Vikings\" from the north.";
+
+  methods :-
+
+    Extracting String Parts
+
+      slice(start, end)
+      substring(start, end)
+      substr(start, length)
+
+    Replacing String Content
+
+      let text = "Please visit Microsoft!";
+      let newText = text.replace("Microsoft", "W3Schools");
+
+      The replace() method replaces only the first match
+
+      To replace case insensitive, use a regular expression with an /i flag (insensitive):
+
+        let newText = text.replace(/MICROSOFT/i, "W3Schools");
+
+      ReplaceAll():
+        
+        The replaceAll() method allows you to specify a regular expression instead of a string to be replaced.
+
+        text = text.replaceAll("Cats","Dogs");
+
+  Converting to Upper and Lower Case
+
+  A string is converted to upper case with toUpperCase():
+  A string is converted to lower case with toLowerCase():
+
+  syntax:-
+
+    let text1 = "Hello World!";       // String
+    let text2 = text1.toLowerCase();  // text2 is text1 converted to lower
+
+  JavaScript String concat()
+
+    let text1 = "Hello";
+    let text2 = "World!";
+    let text3 = text1.concat(" ","hii"," ",text2);
+
+  trimming
+
+    removing white spaces in string
+
+    trim() => both ends
+    trimStart() => at start
+    trimEnd() => at end
+
+  padding
+  
+    The padStart() method pads a string from the start.
+    The padEnd() method pads a string from the start.
+    It pads a string with another string (multiple times) until it reaches a given length.
+
+    let text = "5";
+    let padded = text.padStart(7,"01");
+    let padded = text.padEnd(4,"x");
+
+  property accessing
+
+    let text = "HELLO WORLD";
+    let char = text[0];
+
+  converting string to array
+
+    A string can be converted to an array with the split() method:
+
+    text.split(",")    // Split on commas
+    text.split(" ")    // Split on spaces
+    text.split("|")    // Split on pipe
+    text.split("")     // split by single Character
+
+  String Search
+
+    indexOf()
+
+      The indexOf() method returns the index (position) the first occurrence of a string in a string:
+      
+      let text = "Please locate where 'locate' occurs!";
+      let index = text.indexOf("locate");
+
+    lastIndexOf()
+
+      let index = text.indexOf("locate");
+
+    second parameter is used for searching the string st specified index
+
+      let index = text.indexOf("locate", 15);
+ 
+    search:
+
+      let text = "Please locate where 'locate' occurs!";
+      text.search(/locate/);
+
+      difference:
+
+        The search() method cannot take a second start position argument.
+        The indexOf() method cannot take powerful search values (regular expressions).
+
+    JavaScript String match()
+    
+    The match() method returns an array containing the results of matching a string against a string
+
+      let text = "The rain in SPAIN stays mainly in the plain";
+      text.match("ain");
+
+      we can use the regular expression allows
+
+    includes()
+
+      The includes() method returns true if a string contains a specified value.
+    
+      let text = "Hello world, welcome to the universe.";
+      text.includes("world");
+      text.includes("world", 12);
+  
+    startsWith() and endsWith()
+
+      The startsWith() method returns true if a string begins with a specified value.
+      The endsWith() method returns true if a string ends with a specified value.
+
+      text.startsWith("world", 6)
+      text.endsWith("world", 11);
+
+JavaScript Template Literals
+
+  Template Literals use back-ticks (``) rather than the quotes ("") to define a string:
+
+  Variable Substitutions
+
+    let firstName = "John";
+    let lastName = "Doe";
+    let text = `Welcome ${firstName}, ${lastName}!`;
+
+numbers
+
+  toFixed() 
+  
+    toFixed() returns a string, with the number written with a specified number of decimals
+
+  The toPrecision() Method
+
+    toPrecision() returns a string, with a number written with a specified length
+
+arrays
+
+  An array is a special variable, which can hold more than one value:
+
+  const cars = ["Saab", "Volvo", "BMW"];
+
+  Accessing
+
+    let car = cars[0];
+
+  Changing an Array Element
+
+    cars[0] = "Opel";
+  
+  Converting an Array to a String
+
+    const carString = car.toString()
+  
+    The join() method also joins all array elements into a string.
+
+      fruits.join(*)
+
+  Adding Array Elements
+
+    fruits.push("Lemon");
+
+    unshift() => The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements
+
+      fruits.unshift("Lemon");
+
+  removing array elements
+    
+    The pop() method removes the last element from an array:
+
+      fruits.pop();
+
+    shift() => removes first element
+      
+      fruits.shift();
+
+  splice()
+
+    The splice() method can be used to add new items to an array:
+
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 0, "Lemon", "Kiwi");
+
+    1st => position
+    2nd => homw many elements to remove
+    other parameters are elements to be added
+
+    Using splice() to Remove Elements
+
+      you can use splice() to remove elements without leaving "holes" in the array
+
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      fruits.splice(0, 1);
+
+      1st => position
+      2nd => how many to remove
+  
+  Array slice()
+
+    The slice() method slices out a piece of an array into a new array.
+  
+    const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+    const citrus = fruits.slice(1);
+
+  Merging (Concatenating) Arrays
+
+    const myGirls = ["Cecilie", "Lone"];
+    const myBoys = ["Emil", "Tobias", "Linus"];
+
+    const myChildren = myGirls.concat(myBoys);
+
+  sorting :
+
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();
+
+  reversing :
+
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();
+    fruits.reverse();
+
+  Numeric Sort
+
+      const points = [40, 100, 1, 5, 25, 10];
+      points.sort(function(a, b){return a - b});
+
+      array descending
+
+        const points = [40, 100, 1, 5, 25, 10];
+        points.sort(function(a, b){return b - a});
+  
+    sorting object array 
+
+      const cars = [
+      {type:"Volvo", year:2016},
+      {type:"Saab", year:2001},
+      {type:"BMW", year:2010}
+      ];
+
+    
+    Math.max() and Math.min()
+
+      You can use Math.max.apply to find the highest number in an array:
+
+      function myArrayMax(arr) {
+        return Math.max.apply(null, arr);
+      }
+
+      You can use Math.min.apply to find the lowest number in an array:
+
+      function myArrayMin(arr) {
+        return Math.min.apply(null, arr);
+      }
+
+    iterators :-
+
+      Looping Array Elements
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        
+        Array.forEach()
+
+          fruits.forEach((a) => a+1)
+
+        Note that the function takes 3 arguments:
+
+        The item value
+        The item index
+        The array itself
+
+      map()
+
+        The map() method creates a new array by performing a function on each array element.
+        The map() method does not execute the function for array elements without values.
+        The map() method does not change the original array.
+        
+        const numbers1 = [45, 4, 9, 16, 25];
+        const numbers2 = numbers1.map(myFunction);
+        function myFunction(value, index, array) {
+          return value * 2;
+        }
+
+      Array flatMap()
+
+        The flatMap() method first maps all elements of an array and then creates a new array by flattening the array.
+      
+      Array filter()
+
+        The filter() method creates a new array with array elements that pass a test.
+
+        const numbers = [45, 4, 9, 16, 25];
+        const over18 = numbers.filter(myFunction);
+        function myFunction(value, index, array) {
+          return value > 18;
+        }
+
+      reduce()
+      
+        The reduce() method runs a function on each array element to produce (reduce it to) a single value.
+      
+        const numbers = [45, 4, 9, 16, 25];
+        let sum = numbers.reduce(myFunction);
+        function myFunction(total, value, index, array) {
+          return total + value;
+        }
+
+        The total (the initial value / previously returned value)
+
+        let sum = numbers.reduce(myFunction, 100);
+
+        The reduceRight() works from right-to-left in the array. 
+      
+      every() and some()
+
+        The every() method checks if all array values pass a test.
+        The some() method checks if some array values pass a test.
+      
+      find()
+
+        The find() method returns the value of the first array element that passes a test function.
+      
+      findIndex()
+
+        The findIndex() method returns the index of the first array element that passes a test function.
+      
+      The Array.keys()
+
+        The Array.keys() method returns an Array Iterator object with the keys of an array.
+
+      entries()
+       
+        The entries() method returns an Array Iterator object with key/value pairs:
+        [0, "Banana"]
+        [1, "Orange"]
+        [2, "Apple"]
+        [3, "Mango"]
+      
+      includes()
+
+        This allows us to check if an element is present in an array
+      
+      Spread (...)
+
+        The ... operator expands an iterable (like an array) into more elements:
+
+        const q1 = ["Jan", "Feb", "Mar"];
+        const q2 = ["Apr", "May", "Jun"];
+        const q3 = ["Jul", "Aug", "Sep"];
+        const q4 = ["Oct", "Nov", "May"];
+        const year = [...q1, ...q2, ...q3, ...q4];
+
+JavaScript Date Objects
+
+  const d = new Date();
+  const d = new Date("2022-03-25");
+
+  input
+
+     ISO Date	"2015-03-25" (The International Standard)
+     Short Date	"03/25/2015"
+     Long Date	"Mar 25 2015" or "25 Mar 2015"
+
+  output 
+  
+    Mon Oct 16 2023 21:01:07 GMT+0530 
+
+  creating date objects
+   
+     new Date()
+     new Date(date string)
+     new Date(year,month)
+     new Date(year,month,day)
+     new Date(year,month,day,hours)
+     new Date(year,month,day,hours,minutes)
+     new Date(year,month,day,hours,minutes,seconds)
+     new Date(year,month,day,hours,minutes,seconds,ms)
+     new Date(milliseconds)
+    
+  displaying
+
+    When you display a date object in HTML, it is automatically converted to a string, with the toString() method.
+
+    The toDateString() method converts a date to a more readable format
+
+  Get Date Methods
+
+    getFullYear()	Get year as a four digit number (yyyy)
+    getMonth()	Get month as a number (0-11)
+    getDate()	Get day as a number (1-31)
+    getDay()	Get weekday as a number (0-6)
+    getHours()	Get hour (0-23)
+    getMinutes()	Get minute (0-59)
+    getSeconds()	Get second (0-59)
+    getMilliseconds()	Get millisecond (0-999)
+  
+math functions => check web
+
+conditional 
+
+  Use if to specify a block of code to be executed, if a specified condition is true
+  Use else to specify a block of code to be executed, if the same condition is false
+  Use else if to specify a new condition to test, if the first condition is false
+  Use switch to specify many alternative blocks of code to be executed
+
+  if (time < 10) {
+   greeting = "Good morning";
+  } 
+  else if (time < 20) {
+    greeting = "Good day";
+  } else {
+    greeting = "Good evening";
+  }
+
+  switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+  }
+
+loops
+
+  for - loops through a block of code a number of times
+  for/in - loops through the properties of an object
+  for/of - loops through the values of an iterable object
+  while - loops through a block of code while a specified condition is true
+  do/while - also loops through a block of code while a specified condition is true
+
+  for
+
+   for (let i = 0; i < 5; i++) {
+    text += "The number is " + i + "<br>";
+   }
+
+  for in
+
+   const numbers = [45, 4, 9, 16, 25];
+   let txt = "";
+   for (let x in numbers) {
+     txt += numbers[x];
+   }
+
+  for of
+
+    const cars = ["BMW", "Volvo", "Mini"];
+    let text = "";
+    for (let x of cars) {
+     text += x;
+    }
+
+  while
+   
+   while (i < 10) {
+    text += "The number is " + i;
+    i++;
+   }
+
+  do while
+
+   do {
+   text += "The number is " + i;
+   i++;
+   }
+   while (i < 10);
+
+JavaScript Break and Continue
+
+   The break statement "jumps out" of a loop.
+   The continue statement "jumps over" one iteration in the loop.
+
+set 
+
+  A JavaScript Set is a collection of unique values.
+
+  new Set()	Creates a new Set
+    const letters = new Set(["a","b","c"]);
+
+  add()	Adds a new element to the Set
+  delete()	Removes an element from a Set
+  has()	Returns true if a value exists in the Set
+  forEach()	Invokes a callback for each element in the Set
+  values()	Returns an iterator with all the values in a Set
+
+  Property	Description
+  size	Returns the number of elements in a Set
+
+map
+
+  new Map()	Creates a new Map
+
+  const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+  ]);
+
+  set()	Sets the value for a key in a Map
+  get()	Gets the value for a key in a Map
+  delete()	Removes a Map element specified by the key
+  has()	Returns true if a key exists in a Map
+  forEach()	Calls a function for each key/value pair in a Map
+  entries()	Returns an iterator with the [key, value] pairs in a Map
+
+  Property	Description
+  size	Returns the number of elements in a Map
+
+typeof
+
+   typeof "John"                 // Returns "string"
+   typeof 3.14                   // Returns "number"
+   typeof NaN                    // Returns "number"
+   typeof false                  // Returns "boolean"
+   typeof [1,2,3,4]              // Returns "object"
+   typeof {name:'John', age:34}  // Returns "object"
+   typeof new Date()             // Returns "object"
+   typeof function () {}         // Returns "function"
+   typeof myCar                  // Returns "undefined" *
+   typeof null                   // Returns "object"
+
+JavaScript Type Conversion
+
+  Converting Strings to Numbers => Number("3.22")
+  Converting Numbers to Strings => String(10)
+  Converting Booleans to Numbers => Number(true)
+
+Regular expression
+
+  A regular expression is a sequence of characters that forms a search pattern.
+  The search pattern can be used for text search and text replace operations.
+
+  /pattern/modifiers;
+
+  i	Perform case-insensitive matching	
+  g	Perform a global match (find all matches rather than stopping after the first match)	
+  m	Perform multiline matching
+
+Errors => Throw, and Try...Catch...Finally
+
+  The try statement defines a code block to run (to try).
+  The catch statement defines a code block to handle any error.
+  The finally statement defines a code block to run regardless of the result.
+  The throw statement defines a custom error.
+
+  try {
+  Block of code to try
+  }
+  catch(err) {
+    Block of code to handle errors
+  }
+  finally {
+    Block of code to be executed regardless of the try / catch result
+  }
+  
+JavaScript Hoisting
+
+  In JavaScript, a variable can be declared after it has been used.
+
+JavaScript Callbacks
+
+  A callback is a function passed as an argument to another function
+  This technique allows a function to call another function
+  A callback function can run after another function has finished
+
+    function myDisplayer(some) {
+    document.getElementById("demo").innerHTML = some;
+    }
+
+    function myCalculator(num1, num2, myCallback) {
+    let sum = num1 + num2;
+    myCallback(sum);
+    }
+
+    myCalculator(5, 5, myDisplayer);
+
+Asynchronous JavaScript
+
+  Functions running in parallel with other functions are called asynchronous
+
+  When using the JavaScript function setTimeout(), you can specify a callback function to be executed on time-out:
+  
+  Example
+
+  setTimeout(myFunction, 3000);
+  function myFunction() {
+    document.getElementById("demo").innerHTML = "I love You !!";
+  }
+
+  Callback Alternatives
+
+  With asynchronous programming, JavaScript programs can start long-running tasks, and continue running other tasks in paralell.
+  But, asynchronus programmes are difficult to write and difficult to debug.
+  Because of this, most modern asynchronous JavaScript methods don't use callbacks. Instead, in JavaScript, asynchronous programming is solved using Promises instead.
+
+  Promises
+
+    "Producing code" is code that can take some time
+    "Consuming code" is code that must wait for the result
+    A Promise is a JavaScript object that links producing code and consuming code
+
+    let myPromise = new Promise(function(myResolve, myReject) {
+      // "Producing Code" (May take some time)
+
+      myResolve(); // when successful
+      myReject();  // when error
+    });
+
+    // "Consuming Code" (Must wait for a fulfilled Promise)
+    
+    myPromise.then(
+     function(value) { /* code if successful */ },
+     function(error) { /* code if some error */ } 
+    );
+  
+  JavaScript Async
+
+    "async and await make promises easier to write"
+    async makes a function return a Promise
+    await makes a function wait for a Promise
+
+    ..........................................
+    function resolveAfter2Seconds() {
+       return new Promise((resolve) => {
+       setTimeout(() => {
+       resolve('resolved');
+       }, 2000);
+       });
+    }
+
+    async function asyncCall() {
+    console.log('calling');
+    const result = await resolveAfter2Seconds();
+    console.log(result);
+    // Expected output: "resolved" 
+    }  
+
+    asyncCall();
+    .................................................
+
+JavaScript JSON
+
+  JSON stands for JavaScript Object Notation
+  JSON is a format for storing and transporting data.
+  JSON is often used when data is sent from a server to a web page.
+
+  {
+  "employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+  ]
+  }
+
+  accessing:-
+
+    let personName = obj.name;
+
+  modification:-
+
+    person.name = "Gilbert";
+
+  JSON.parse()
+
+    When receiving data from a web server, the data is always a string.
+    Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+
+  JSON.stringify()
+
+    A common use of JSON is to exchange data to/from a web server.
+    When sending data to a web server, the data has to be a string.
+    Convert a JavaScript object into a string with JSON.stringify().
+
+
+
+
+
+  
