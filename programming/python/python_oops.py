@@ -66,37 +66,44 @@
 
 ################################### inheritance #########################
 
-# class Pet:
-#     def __init__(self,name,age):
-#         self.name = name
-#         self.age = age
+class Pet:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
     
-#     def speak(self):
-#         print("do not speak")
+    def speak(self):
+        print("do not speak")
 
-# class Dog(Pet):
-#     def speak(self):
-#         print("bark")
+    def one(self):
+        return "hii"
+
+class Dog(Pet):
+    def speak(self):
+        print("bark")
     
-# class Cat(Pet):
-#     def __init__(self,name,age,color):
-#         super().__init__(name,age)
-#         self.color = color
+    def two(self):
+        print(super().one())
+    
+class Cat(Pet):
+    def __init__(self,name,age,color):
+        super().__init__(name,age)
+        self.color = color
 
-#     def get_details(self):
-#         return [self.name,self.age,self.color]
+    def get_details(self):
+        return [self.name,self.age,self.color]
 
-#     def speak(self):
-#         print("meaw")
+    def speak(self):
+        print("meaw")
 
-# p1 = Pet("one",10)
-# d1 = Dog("two",20)
-# c1 = Cat("three",30,"white")
+p1 = Pet("one",10)
+d1 = Dog("two",20)
+c1 = Cat("three",30,"white")
 
-# p1.speak()
-# d1.speak()
-# c1.speak()
-# print(c1.get_details())
+p1.speak()
+d1.speak()
+c1.speak()
+d1.two()
+print(c1.get_details())
 
 ####################################cls attributes and methods###############################
 
